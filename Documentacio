@@ -1,0 +1,64 @@
+Documentacio Practica Obligada VLC
+
+
+1- Hem seleccionat Ubuntu Linux 18.04 com a Sistema Operatiu i hem realitzat la instalacio del VLC en la terminal utillitzant els comandes “sudo apt install snapd” i “sudo snap install vlc” si no ens ha donat cap error se ha instalat VLC en el nostre S.O.
+
+2- Hem creat un archiu “playlist.bat” en una carpeta anomenat “VLC” on crea una estructura de carpetes de del vlc amb una carpeta principal amb carpetes en el interior amb el nom del grup i les cançons del grup en el interior, totes les cançons tenen la mateixa estructura “nom_canço-nom_grup.mp3/4”. Les cançons les crea en la ubicacio de “/home/$USER/VLC_playlist/”, necesitam tenir les cançons descarregades i en la carpeta de descargas.
+
+3- En la carpeta de VLC on tenim el .bat anterior cream hem creat ara el archiu “menu.bat” on a partir de un menu de opcions on demana a l’usuari quina opcio vol a partir de introduir el numero que apareix a cada opcio.
+
+4-Podem reproduir una canço aleatoria amb el comande “vlc --random /home/$USER/VLC_playlist/” on selecciona una de les cançons dins de la carpeta general i de les carpetes de grup, amb el comande random
+
+5-Podem escollir una canço especifica amb la llista de comandes “   ls /home/$USER/VLC_playlist
+   echo Indica una carpeta:
+   read patro1
+   ls /home/$USER/VLC_playlist/*$patro1*
+   echo Indica una canço:
+   read patro2
+   llista2=$(ls /home/$USER/VLC_playlist/*$patro1*/*$patro2*)
+   echo $llista2
+   vlc "$llista2"
+   break”
+en aquest codi ens enseña les carpetes del grups per que l’usuari seleccioni la que vol, a continuacio li demanam el nom del archiu poguen veure les cançons disponibles. Varem tenir problemes per un problema de rutes pero al final probant varies coses ho varem arreglar.
+
+6-Per repetir una llista de reproduccio feim servir el comande “ vlc --loop /home/$USER/VLC_playlist” gracies al comande loop
+
+7- Si volem veure un video en pantalla completa introduim “vlc --fullscreen /home/$USER/VLC_playlist”, simplement utilitzam el comande fullscreen
+
+8-Per utilitzar el videowall feim servir “ls /home/$USER/VLC_playlist
+   echo Indica una carpeta:
+   read patro1  
+     ls /home/$USER/VLC_playlist/*$patro1*
+   echo Indica una canço:
+   read patro2
+   llista=$(ls /home/$USER/VLC_playlist/*$patro1*/*$patro2*)
+   echo $llista
+   echo Indica les columnes:
+   read columnas
+   echo Indica les files:
+   read fila
+   vlc --wall-cols $columnas vlc --wall-row=$filas --wall-active NULL /home/$USER/VLC_playlist/*$patro1*/*$patro2*”
+Li demanam al usuari quina canço vol i que indiqui en cuantes columnes i files, el --wal-active posam NULL perque dongui permis a tot.
+
+9- Per veure un video en un determinat minut amb “ echo Indica el segundo de inicio:
+   read seginicio
+   echo Indica el segundo de finalización:
+   read segfinal
+     vlc --start-time=$seginicio --stop-time=$segfinal /home/$USER/VLC_playlist/LOL/GIANTS-LOL.mp4” 
+li demanam al usuari que indiqui el segun inicial i el segon final.
+
+10- Si volem escollir un subtitols feim servir lo seguent “ls /home/$USER/VLC_playlist/
+   echo Indica una carpeta:
+   read patro1  
+     ls /home/$USER/VLC_playlist/*$patro1*
+   echo Indica una canço:
+   read patro2
+     ls /home/$USER/VLC_playlist/*$patro1*
+   llista1=$(ls /home/$USER/VLC_playlist/*$patro1*/*$patro2*)
+   echo "Introducir archivo que contiene los subtitulos:"
+   read sub  
+   vlc /home/$USER/VLC_playlist/*$patro1*/*$patro2* :sub-file=/home/$USER/VLC_playlist/*$patro1*/*$sub*”
+Li demanam a l’usuari la carpeta del grup i nom de la canço, despres l’archiu dels subtitols que ha de estar en la mateixa carpeta que la canço i s’executa.
+
+11- La webcam per problemes tecnics degut a que hem realitzat el projecte amb maquina virtual no hem pogut realitzarlo, la maquina virtual no mante comunicacio amb el periferic de la webcam.
+
