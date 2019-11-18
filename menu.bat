@@ -10,16 +10,16 @@ do
    vlc --random /home/$USER/VLC_playlist
    break
    ;;
-  "Pantalla_Completa")
+ "Pantalla_Completa")
    clear
    vlc --fullscreen /home/$USER/VLC_playlist
    break
    ;;
-  "Repetir_Llista")
+ "Repetir_Llista")
    vlc --loop /home/$USER/VLC_playlist
    break
    ;;
-  "Elegir_Cançons")
+ "Elegir_Cançons")
    clear
    ls /home/$USER/VLC_playlist
    echo Indica una carpeta:
